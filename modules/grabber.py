@@ -3,6 +3,8 @@
 import socket
 import threading
 import queue
+import os
+import shutil
 
 #Grabber class
 class Grabber:
@@ -42,3 +44,15 @@ class Grabber:
 
 		for port in range(1, 65536):
 			self.q.put(port)
+
+	#Advance scan function
+	def advance_scan(self):
+		try:
+			self.nmap = "nmap -A -T4 -Pn -p{ports} {target} -oN {path}".format(ports=",".join(self.open_ports), target=self.target, path=f"{self.target}/advancedScan")
+			print("Scan Command: " + self.nmap)
+			if os.path.exists(self.target):
+				shutil.rmtree(self.target)
+			os.mkdir(self.target)
+			os.system(self.nmap)
+		except Exception as e:
+			print(e)

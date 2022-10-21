@@ -7,6 +7,7 @@
 
 import os
 import argparse
+import time
 
 from modules.grabber import Grabber
 from datetime import datetime
@@ -56,16 +57,27 @@ if __name__ == "__main__":
 		AgileGrabber.show_banner()
 		agileGrabber = AgileGrabber()
 		grabber = Grabber(agileGrabber.args.target, agileGrabber.args.threads)
-		print("[+] Starting simple scan..")
+
+		time.sleep(1)
 		t1 = datetime.now()
+		print("[+] Starting simple scan..")
+		print(f"[+] Scanning target : {agileGrabber.args.target}")
 		print("-"*67)
+
 		grabber.initiate()
 		grabber.q.join()
 		t2 = datetime.now()
 		print("-"*67)
 		print(f"[*] Simple scan completed in {t2-t1} seconds")
+		
 		print("-"*67)
 		print("[+] Starting advanced scan..")
+		print("-"*67)
+		t3 = datetime.now()
+		grabber.advance_scan()
+		print("-"*67)
+		print(f"[*] Advanced scan completed in {t3-t2} seconds")
+		print(f"[*] Full scan completed in {t3-t1} seconds")
 		print("-"*67)
 	except:
 		print("\n"+"-"*67)
