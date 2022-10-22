@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="#">
-    <img src="https://i.ibb.co/BZjyxg4/agile-Grabber.png" alt="logo" height="135px">
+    <img src="https://i.ibb.co/BZjyxg4/agile-Grabber.png" alt="logo">
   </a>
 
   <h2 align="center">AgileGrabber</h2>
