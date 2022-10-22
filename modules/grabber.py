@@ -38,11 +38,14 @@ class Grabber:
 
 	#Initiate function
 	def initiate(self):
-		for i in range(self.threads):
-			self.thread = threading.Thread(target=self.threader, daemon=True)
-			self.thread.start()
+		try:
+			for i in range(self.threads):
+				self.thread = threading.Thread(target=self.threader, daemon=True)
+				self.thread.start()
 
-		for port in range(1, 65536):
-			self.q.put(port)
+			for port in range(1, 65536):
+				self.q.put(port)
 
-		self.q.join()
+			self.q.join()
+		except:
+			pass

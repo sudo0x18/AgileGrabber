@@ -82,7 +82,6 @@ if __name__ == "__main__":
 		print(f"[*] Full scan completed in {datetime.now()-t1} seconds")
 		print("-"*67)
 	except Exception as e:
-		print(e)
 		print("\n"+"-"*67)
 		print("                             Good Bye!")
 		print("-"*67)
