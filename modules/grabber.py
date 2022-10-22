@@ -26,7 +26,7 @@ class Grabber:
 				print(f"Port {port} is open")
 				self.open_ports.append(str(port))
 			self.client.close()
-		except (ConnectionRefusedError, AttributeError, OSError):
+		except Exception as e:
 			pass
 
 	#Threader class
