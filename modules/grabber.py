@@ -15,7 +15,7 @@ class Grabber:
 		self.q = queue.Queue()
 		self.print_lock = threading.Lock()
 		self.open_ports = []
-		socket.setdefaulttimeout(2)
+		socket.setdefaulttimeout(0.9)
 
 	#Scanner Function
 	def scanner(self, port):
@@ -23,10 +23,10 @@ class Grabber:
 		try:
 			self.conn = self.client.connect((self.target, port))
 			with self.print_lock:
-				print(f"{port} is open")
+				print(f"Port {port} is open")
 				self.open_ports.append(str(port))
 			self.client.close()
-		except Exception as e:
+		except (ConnectionRefusedError, AttributeError, OSError):
 			pass
 
 	#Threader class
@@ -45,14 +45,4 @@ class Grabber:
 		for port in range(1, 65536):
 			self.q.put(port)
 
-	#Advance scan function
-	def advance_scan(self):
-		try:
-			self.nmap = "nmap -A -T4 -Pn -p{ports} {target} -oN {path}".format(ports=",".join(self.open_ports), target=self.target, path=f"{self.target}/advancedScan")
-			print("Scan Command: " + self.nmap)
-			if os.path.exists(self.target):
-				shutil.rmtree(self.target)
-			os.mkdir(self.target)
-			os.system(self.nmap)
-		except Exception as e:
-			print(e)
+		self.q.join()
