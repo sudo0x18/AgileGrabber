@@ -73,11 +73,10 @@ if __name__ == "__main__":
 		print("-"*67)
 		print("[+] Starting advanced scan..")
 		print("-"*67)
-		t3 = datetime.now()
 		
 		scanner = Scanner(agileGrabber.args.target, agileGrabber.args.threads, grabber.open_ports)
 		scanner.advanced_scanner()
-
+		t3 = datetime.now()
 		print("-"*67)
 		print(f"[*] Advanced scan completed in {t3-t2} seconds")
 		print(f"[*] Full scan completed in {datetime.now()-t1} seconds")
