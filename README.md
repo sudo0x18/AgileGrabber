@@ -22,7 +22,7 @@
 
 </div>
 
-<h3 align="center">AgileGrabber is a multi threaded port scanner made with python and nmap to make scanning faster.</h3>
+<h3 align="center">AgileGrabber is a multi cored and multi threaded port scanner made with python and nmap to make scanning faster.</h3>
 
 ## Installation 🧑‍🔧​
 

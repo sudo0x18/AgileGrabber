@@ -1,6 +1,6 @@
 #!/bin/python3
-# AgileGrabber - Multi threaded port scanner
-# v1.0.1
+# AgileGrabber - Multi cored and threaded port scanner
+# v1.0.2
 # A project by Jay Vadhaiya
 # https://github.com/sudo0x18/AgileGrabber.git
 # Licensed under GNU GPLv3 Standards.  https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -16,7 +16,7 @@ from datetime import datetime
 #Agile Grabber Class
 class AgileGrabber:
 	#Creating description and usage
-	DESCRIPTION = f"""AgileGrabber is a multi threaded port scanner made with python and nmap to increase the speed of scanning."""
+	DESCRIPTION = f"""AgileGrabber is a multi cored and threaded port scanner made with python and nmap to increase the speed of scanning."""
 
 	USAGE = f"python3 agile_grabber.py -t TARGET -th THREADS [--help]"
 
@@ -37,8 +37,8 @@ class AgileGrabber:
 		print("-"*67)
 		print("""\t\t╔═╗┌─┐┬┬  ┌─┐ ╔═╗┬─┐┌─┐┌┐ ┌┐ ┌─┐┬─┐\n\t\t╠═╣│ ┬││  ├┤  ║ ╦├┬┘├─┤├┴┐├┴┐├┤ ├┬┘\n\t\t╩ ╩└─┘┴┴─┘└─┘ ╚═╝┴└─┴ ┴└─┘└─┘└─┘┴└─""")
 		print("-"*67)
-		print("      A multi threaded port scanner made with python and nmap")
-		print("                          Version v1.0.1")
+		print("  A multi cored & threaded port scanner made with python and nmap")
+		print("                          Version v1.0.2")
 		print("           A project by Jay Vadhaiya, Github: sudo0x18")
 		print("-"*67)
 
@@ -72,6 +72,7 @@ if __name__ == "__main__":
 		
 		print("-"*67)
 		print("[+] Starting advanced scan..")
+		print("-"*67)
 		t3 = datetime.now()
 		
 		scanner = Scanner(agileGrabber.args.target, agileGrabber.args.threads, grabber.open_ports)
