@@ -15,7 +15,7 @@ class Grabber:
 		self.q = queue.Queue()
 		self.print_lock = threading.Lock()
 		self.open_ports = []
-		socket.setdefaulttimeout(0.9)
+		socket.setdefaulttimeout(1.3)
 
 	#Scanner Function
 	def scanner(self, port):
